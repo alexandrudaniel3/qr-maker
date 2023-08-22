@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/alexandrudaniel3.github.io/qr-maker/static/css/main.f847eb10.css",
-    "main.js": "/alexandrudaniel3.github.io/qr-maker/static/js/main.6851dd3d.js",
-    "static/js/787.8aad5bb8.chunk.js": "/alexandrudaniel3.github.io/qr-maker/static/js/787.8aad5bb8.chunk.js",
-    "index.html": "/alexandrudaniel3.github.io/qr-maker/index.html",
-    "main.f847eb10.css.map": "/alexandrudaniel3.github.io/qr-maker/static/css/main.f847eb10.css.map",
-    "main.6851dd3d.js.map": "/alexandrudaniel3.github.io/qr-maker/static/js/main.6851dd3d.js.map",
-    "787.8aad5bb8.chunk.js.map": "/alexandrudaniel3.github.io/qr-maker/static/js/787.8aad5bb8.chunk.js.map"
+    "main.css": "/qr-maker/static/css/main.f847eb10.css",
+    "main.js": "/qr-maker/static/js/main.86a24bcb.js",
+    "static/js/787.8aad5bb8.chunk.js": "/qr-maker/static/js/787.8aad5bb8.chunk.js",
+    "index.html": "/qr-maker/index.html",
+    "main.f847eb10.css.map": "/qr-maker/static/css/main.f847eb10.css.map",
+    "main.86a24bcb.js.map": "/qr-maker/static/js/main.86a24bcb.js.map",
+    "787.8aad5bb8.chunk.js.map": "/qr-maker/static/js/787.8aad5bb8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f847eb10.css",
-    "static/js/main.6851dd3d.js"
+    "static/js/main.86a24bcb.js"
   ]
 }
