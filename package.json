@@ -2,7 +2,7 @@
   "name": "qr-maker",
   "version": "0.1.0",
   "private": true,
-  "homepage": "alexandrudaniel3.github.io/qr-maker",
+  "homepage": "https://alexandrudaniel3.github.io/qr-maker",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
