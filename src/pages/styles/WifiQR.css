@@ -1,0 +1,79 @@
+.wifi-mode {
+    display: flex;
+    flex-direction: row;
+}
+
+.wifi-qr-code {
+    background: #FFF8E1;
+    display: flex;
+    flex-direction: column;
+}
+
+.wifi-qr-download-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.wifi-qr-code-wrapper {
+    background: white;
+    padding: 10px;
+}
+
+.wifi-qr-download-buttons button {
+    background-color: #333333;
+    color: white;
+}
+
+.wifi-qr-download-buttons button:hover {
+    background-color: #222222;
+}
+
+.wifi-qr-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wifi-qr-code-wrapper {
+    padding: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.wifi-qr-code img {
+    max-width: 100%;
+    height: auto;
+}
+
+.wifi-qr-code-container .download-buttons button {
+    background-color: #333333;
+    color: white;
+    margin-top: 10px;
+}
+
+.wifi-qr-code-container .download-buttons button:hover {
+    background-color: #222222;
+}
+
+.selected, .selected:hover {
+    border: 2px solid rgba(0, 0, 0);
+}
+
+.hid-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.hid-checkbox > input {
+    margin-left: 5px;
+}
+
+@media only screen and (max-width: 650px) {
+    .wifi-mode {
+        flex-direction: column;
+    }
+}
