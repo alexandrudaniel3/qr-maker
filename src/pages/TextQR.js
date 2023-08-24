@@ -5,14 +5,11 @@ import {exportQR} from "../utils";
 import {colorPicker} from "../utils";
 import {useNavigate} from "react-router-dom";
 
-export default function TextQR() {
+export default function TextQR({bgColor, fgColor, selected, setBgColor, setFgColor, setSelected}) {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const qrRefWithValue = useRef(null);
     const qrRefWithoutValue = useRef(null);
-    const [bgColor, setBgColor] = useState('white');
-    const [fgColor, setFgColor] = useState('black');
-    const [selected, setSelected] = useState(0);
 
     // document.body.style.transition = 'transition: background 5s ease';
     document.body.style.background = 'linear-gradient(135deg, #B2FF66, #5ABE76)';
@@ -41,7 +38,7 @@ export default function TextQR() {
         setSelected(id);
     }
 
-    const generateTextCode = () => {
+    const generateTextQR= () => {
         let entry = text;
         if (!entry) {
             entry = 'Hello!';
@@ -99,7 +96,7 @@ export default function TextQR() {
                 {colorPicker(setColors, selected)}
             </div>
             <div className='main-right'>
-                {generateTextCode()}
+                {generateTextQR()}
             </div>
         </div>
     )

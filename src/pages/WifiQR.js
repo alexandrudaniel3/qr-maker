@@ -3,16 +3,13 @@ import React, {useRef, useState} from "react";
 import QRCode from "react-qr-code";
 import {colorPicker, exportQR} from "../utils";
 
-export default function WifiQR() {
+export default function WifiQR({bgColor, fgColor, selected, setBgColor, setFgColor, setSelected}) {
     const [ssid, setSsid] = useState('');
     const [pwd, setPwd] = useState('');
     const [enc, setEnc] = useState('WPA');
     const [hid, setHid] = useState(0);
     const qrRefWithValue = useRef(null);
     const qrRefWithoutValue = useRef(null);
-    const [bgColor, setBgColor] = useState('white');
-    const [fgColor, setFgColor] = useState('black');
-    const [selected, setSelected] = useState(0);
 
     // document.body.style.transition = 'transition: background 5s ease';
     document.body.style.background = 'linear-gradient(135deg, #66B2FF, #5A76BE)';

@@ -4,16 +4,12 @@ import React, {useRef, useState} from "react";
 import {exportQR} from "../utils";
 import {colorPicker} from "../utils";
 
-export default function LinkQR() {
+export default function LinkQR({bgColor, fgColor, selected, setBgColor, setFgColor, setSelected}) {
     const [title, setTitle] = useState('');
     const [link, setLink] = useState('');
-    // const [formatWarning, setFormatWarning] = useState(false);
     const [protocol, setProtocol] = useState('https://');
     const qrRefWithValue = useRef(null);
     const qrRefWithoutValue = useRef(null);
-    const [bgColor, setBgColor] = useState('white');
-    const [fgColor, setFgColor] = useState('black');
-    const [selected, setSelected] = useState(0);
 
     document.body.style.background = 'linear-gradient(135deg, #FFFF66, #FFBE5A)';
 
@@ -50,25 +46,25 @@ export default function LinkQR() {
         )
     }
 
-    const generateLinkCode = () => {
+    const generateLinkQR = () => {
         let entry = link;
         if (!entry) {
             entry = 'Hello!';
         }
         return (
-            <div className='text-qr-code-container'>
+            <div className='link-qr-code-container'>
                 <p>Your code:</p>
 
-                <div className='text-qr-code' ref={qrRefWithValue}>
-                    <div className='text-qr-code-wrapper' ref={qrRefWithoutValue}>
+                <div className='link-qr-code' ref={qrRefWithValue}>
+                    <div className='link-qr-code-wrapper' ref={qrRefWithoutValue}>
                         <QRCode value={protocol + entry}
                                 bgColor={bgColor}
                                 fgColor={fgColor}/>
                     </div>
-                    <h3 className='text-qr-code-text'>{title}</h3>
+                    <h3 className='link-qr-code-text'>{title}</h3>
                 </div>
 
-                <div className='text-qr-download-buttons'>
+                <div className='link-qr-download-buttons'>
                     <button onClick={() => {
                         exportQR(qrRefWithoutValue)
                     }}>Download Code
@@ -110,7 +106,7 @@ export default function LinkQR() {
                 {colorPicker(setColors, selected)}
             </div>
             <div className='main-right'>
-                {generateLinkCode()}
+                {generateLinkQR()}
             </div>
         </div>
     )

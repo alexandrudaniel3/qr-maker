@@ -3,38 +3,33 @@
     flex-direction: row;
 }
 
-.text-qr-code {
+.link-qr-code {
     background: #FFF8E1;
-    display: flex;
-    flex-direction: column;
-}
-
-.text-qr-download-buttons {
-    display: flex;
-    flex-direction: column;
-}
-
-.text-qr-code-wrapper {
-    background: white;
-    padding: 10px;
-}
-
-.text-qr-download-buttons button {
-    background-color: #333333;
-    color: white;
-}
-
-.text-qr-download-buttons button:hover {
-    background-color: #222222;
-}
-
-.text-qr-code {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.text-qr-code-wrapper {
+.link-qr-download-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.link-qr-code-wrapper {
+    background: white;
+    padding: 10px;
+}
+
+.link-qr-download-buttons button {
+    background-color: #333333;
+    color: white;
+}
+
+.link-qr-download-buttons button:hover {
+    background-color: #222222;
+}
+
+.link-qr-code-wrapper {
     padding: 15px;
     border: 2px solid rgba(0, 0, 0, 0.26);
     border-radius: 10px;
@@ -42,29 +37,23 @@
     display: inline-block;
 }
 
-.text-qr-code img {
+.link-qr-code img {
     max-width: 100%;
     height: auto;
 }
 
-.text-qr-code-text {
+.link-qr-code-text {
     overflow-wrap: anywhere;
 }
 
-.text-qr-code-container .download-buttons button {
+.link-qr-code-container .download-buttons button {
     background-color: #333333;
     color: white;
     margin-top: 10px;
 }
 
-.text-qr-code-container .download-buttons button:hover {
+.link-qr-code-container .download-buttons button:hover {
     background-color: #222222;
-}
-
-@media only screen and (max-width: 650px) {
-    .link-mode {
-        flex-direction: column;
-    }
 }
 
 .format-warning > p {
@@ -78,4 +67,10 @@
 
 .format-warning > p > u {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 650px) {
+    .link-mode {
+        flex-direction: column;
+    }
 }

@@ -4,15 +4,12 @@ import React, {useRef, useState} from "react";
 import {exportQR} from "../utils";
 import {colorPicker} from "../utils";
 
-export default function EmailQR() {
+export default function EmailQR({bgColor, fgColor, selected, setBgColor, setFgColor, setSelected}) {
     const [title, setTitle] = useState('');
     const [address, setAddress] = useState('');
     const [subject, setSubject] = useState('');
     const qrRefWithValue = useRef(null);
     const qrRefWithoutValue = useRef(null);
-    const [bgColor, setBgColor] = useState('white');
-    const [fgColor, setFgColor] = useState('black');
-    const [selected, setSelected] = useState(0);
 
     // document.body.style.transition = 'transition: background 5s ease';
     document.body.style.background = 'linear-gradient(135deg, #FF6666, #BE5A5A)';
@@ -33,23 +30,23 @@ export default function EmailQR() {
         setSelected(id);
     }
 
-    const generateTextCode = () => {
+    const generateEmailQR = () => {
 
         const code = subject ? `mailto:${address}?subject=${encodeURIComponent(subject)}` : `mailto:${address}`;
         return (
-            <div className='text-qr-code-container'>
+            <div className='email-qr-code-container'>
                 <p>Your code:</p>
 
-                <div className='text-qr-code' ref={qrRefWithValue}>
-                    <div className='text-qr-code-wrapper' ref={qrRefWithoutValue}>
+                <div className='email-qr-code' ref={qrRefWithValue}>
+                    <div className='email-qr-code-wrapper' ref={qrRefWithoutValue}>
                         <QRCode value={code}
                                 bgColor={bgColor}
                                 fgColor={fgColor}/>
                     </div>
-                    <h3 className='text-qr-code-text'>{title}</h3>
+                    <h3 className='email-qr-code-text'>{title}</h3>
                 </div>
 
-                <div className='text-qr-download-buttons'>
+                <div className='email-qr-download-buttons'>
                     <button onClick={() => {
                         exportQR(qrRefWithoutValue)
                     }}>Download Code
@@ -67,9 +64,9 @@ export default function EmailQR() {
 
 
     return (
-        <div className='text-mode'>
+        <div className='email-mode'>
             <div className='main-left'>
-                <p>Enter your address:</p>
+                <p>Enter your email address:</p>
                 <div className='text-bar'>
                     <input
                         type='text'
@@ -97,7 +94,7 @@ export default function EmailQR() {
                 {colorPicker(setColors, selected)}
             </div>
             <div className='main-right'>
-                {generateTextCode()}
+                {generateEmailQR()}
             </div>
         </div>
     )

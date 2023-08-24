@@ -1,0 +1,68 @@
+.email-mode {
+    display: flex;
+    flex-direction: row;
+}
+
+.email-qr-code {
+    background: #FFF8E1;
+    display: flex;
+    flex-direction: column;
+}
+
+.email-qr-download-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.email-qr-code-wrapper {
+    background: white;
+    padding: 10px;
+}
+
+.email-qr-download-buttons button {
+    background-color: #333333;
+    color: white;
+}
+
+.email-qr-download-buttons button:hover {
+    background-color: #222222;
+}
+
+.email-qr-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.email-qr-code-wrapper {
+    padding: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.email-qr-code img {
+    max-width: 100%;
+    height: auto;
+}
+
+.email-qr-code-text {
+    overflow-wrap: anywhere;
+}
+
+.email-qr-code-container .download-buttons button {
+    background-color: #333333;
+    color: white;
+    margin-top: 10px;
+}
+
+.email-qr-code-container .download-buttons button:hover {
+    background-color: #222222;
+}
+
+@media only screen and (max-width: 650px) {
+    .email-mode {
+        flex-direction: column;
+    }
+}
