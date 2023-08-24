@@ -1,39 +1,21 @@
-import './styles/TextQR.css';
+import './styles/LinkQR.css';
 import QRCode from "react-qr-code";
 import React, {useRef, useState} from "react";
 import {exportQR} from "../utils";
 import {colorPicker} from "../utils";
-import {useNavigate} from "react-router-dom";
 
-export default function TextQR() {
+export default function LinkQR() {
     const [title, setTitle] = useState('');
-    const [text, setText] = useState('');
+    const [link, setLink] = useState('');
+    // const [formatWarning, setFormatWarning] = useState(false);
+    const [protocol, setProtocol] = useState('https://');
     const qrRefWithValue = useRef(null);
     const qrRefWithoutValue = useRef(null);
     const [bgColor, setBgColor] = useState('white');
     const [fgColor, setFgColor] = useState('black');
     const [selected, setSelected] = useState(0);
 
-    // document.body.style.transition = 'transition: background 5s ease';
-    document.body.style.background = 'linear-gradient(135deg, #B2FF66, #5ABE76)';
-
-    const navigation = useNavigate();
-
-    const showFormatWarning = () => {
-        if (text.includes('://') || text.includes('www.')){
-            return (
-                <div className='format-warning'>
-                    <p><span>Important: </span>For links use the dedicated <u onClick={() => navigation('/link')}>Link QR Generator</u>.</p>
-                </div>
-            )
-        } else if (text.includes('.')) {
-            return (
-                <div className='format-warning'>
-                    <p><span>Hint: </span>For links use the dedicated <u onClick={() => navigation('/link')}>Link QR Generator</u>.</p>
-                </div>
-            )
-        }
-    }
+    document.body.style.background = 'linear-gradient(135deg, #FFFF66, #FFBE5A)';
 
     const setColors = (bgColor, fgColor, id) => {
         setBgColor(bgColor);
@@ -41,8 +23,35 @@ export default function TextQR() {
         setSelected(id);
     }
 
-    const generateTextCode = () => {
-        let entry = text;
+    const showFormatWarning = () => {
+        if (link.includes('http://') || link.includes('https://')) {
+            return (
+                <div className='format-warning'>
+                    <p><span>Warning: </span>Your link should not include the protocol.</p>
+                </div>
+            )
+        }
+    }
+
+    const protocolSelector = () => {
+        return (
+            <div className='enc-selector'>
+                <button
+                    onClick={() => setProtocol('https://')}
+                    className={protocol === 'https://' ? 'selected' : null}
+                >HTTPS
+                </button>
+                <button
+                    onClick={() => setProtocol('http://')}
+                    className={protocol === 'http://' ? 'selected' : null}
+                >HTTP
+                </button>
+            </div>
+        )
+    }
+
+    const generateLinkCode = () => {
+        let entry = link;
         if (!entry) {
             entry = 'Hello!';
         }
@@ -52,7 +61,7 @@ export default function TextQR() {
 
                 <div className='text-qr-code' ref={qrRefWithValue}>
                     <div className='text-qr-code-wrapper' ref={qrRefWithoutValue}>
-                        <QRCode value={entry}
+                        <QRCode value={protocol + entry}
                                 bgColor={bgColor}
                                 fgColor={fgColor}/>
                     </div>
@@ -77,14 +86,15 @@ export default function TextQR() {
 
 
     return (
-        <div className='text-mode'>
+        <div className='link-mode'>
             <div className='main-left'>
-                <p>Enter your text:</p>
+                <p>Enter your website:</p>
                 <div className='text-bar'>
                     <input
                         type='text'
-                        value={text}
-                        onChange={(e) => setText(e.target.value)}
+                        placeholder='www.example.com'
+                        value={link}
+                        onChange={(e) => setLink(e.target.value)}
                     />
                 </div>
                 {showFormatWarning()}
@@ -96,10 +106,11 @@ export default function TextQR() {
                         onChange={(e) => setTitle(e.target.value)}
                     />
                 </div>
+                {protocolSelector()}
                 {colorPicker(setColors, selected)}
             </div>
             <div className='main-right'>
-                {generateTextCode()}
+                {generateLinkCode()}
             </div>
         </div>
     )

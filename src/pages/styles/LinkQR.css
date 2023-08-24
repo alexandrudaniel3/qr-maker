@@ -1,0 +1,81 @@
+.link-mode {
+    display: flex;
+    flex-direction: row;
+}
+
+.text-qr-code {
+    background: #FFF8E1;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-qr-download-buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-qr-code-wrapper {
+    background: white;
+    padding: 10px;
+}
+
+.text-qr-download-buttons button {
+    background-color: #333333;
+    color: white;
+}
+
+.text-qr-download-buttons button:hover {
+    background-color: #222222;
+}
+
+.text-qr-code {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-qr-code-wrapper {
+    padding: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.text-qr-code img {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-qr-code-text {
+    overflow-wrap: anywhere;
+}
+
+.text-qr-code-container .download-buttons button {
+    background-color: #333333;
+    color: white;
+    margin-top: 10px;
+}
+
+.text-qr-code-container .download-buttons button:hover {
+    background-color: #222222;
+}
+
+@media only screen and (max-width: 650px) {
+    .link-mode {
+        flex-direction: column;
+    }
+}
+
+.format-warning > p {
+    font-size: x-small;
+}
+
+.format-warning > p > span {
+    font-weight: bold;
+    color: orangered;
+}
+
+.format-warning > p > u {
+    cursor: pointer;
+}
