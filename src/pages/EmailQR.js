@@ -1,13 +1,13 @@
-import './styles/TextQR.css';
+import './styles/EmailQR.css';
 import QRCode from "react-qr-code";
 import React, {useRef, useState} from "react";
 import {exportQR} from "../utils";
 import {colorPicker} from "../utils";
-import {useNavigate} from "react-router-dom";
 
-export default function TextQR() {
+export default function EmailQR() {
     const [title, setTitle] = useState('');
-    const [text, setText] = useState('');
+    const [address, setAddress] = useState('');
+    const [subject, setSubject] = useState('');
     const qrRefWithValue = useRef(null);
     const qrRefWithoutValue = useRef(null);
     const [bgColor, setBgColor] = useState('white');
@@ -15,21 +15,13 @@ export default function TextQR() {
     const [selected, setSelected] = useState(0);
 
     // document.body.style.transition = 'transition: background 5s ease';
-    document.body.style.background = 'linear-gradient(135deg, #B2FF66, #5ABE76)';
-
-    const navigation = useNavigate();
+    document.body.style.background = 'linear-gradient(135deg, #FF6666, #BE5A5A)';
 
     const showFormatWarning = () => {
-        if (text.includes('http://') || text.includes('https://') || text.includes('www.')){
+        if (address.length > 5 && !address.includes('@')) {
             return (
                 <div className='format-warning'>
-                    <p><span>Important: </span>For links use the dedicated <u onClick={() => navigation('/link')}>Link QR Generator</u>.</p>
-                </div>
-            )
-        } else if (text.includes('.')) {
-            return (
-                <div className='format-warning'>
-                    <p><span>Hint: </span>For links use the dedicated <u onClick={() => navigation('/link')}>Link QR Generator</u>.</p>
+                    <p><span>Warning: </span>The email address entered may not be valid.</p>
                 </div>
             )
         }
@@ -42,17 +34,15 @@ export default function TextQR() {
     }
 
     const generateTextCode = () => {
-        let entry = text;
-        if (!entry) {
-            entry = 'Hello!';
-        }
+
+        const code = subject ? `mailto:${address}?subject=${encodeURIComponent(subject)}` : `mailto:${address}`;
         return (
             <div className='text-qr-code-container'>
                 <p>Your code:</p>
 
                 <div className='text-qr-code' ref={qrRefWithValue}>
                     <div className='text-qr-code-wrapper' ref={qrRefWithoutValue}>
-                        <QRCode value={entry}
+                        <QRCode value={code}
                                 bgColor={bgColor}
                                 fgColor={fgColor}/>
                     </div>
@@ -79,16 +69,24 @@ export default function TextQR() {
     return (
         <div className='text-mode'>
             <div className='main-left'>
-                <p>Enter your text:</p>
+                <p>Enter your address:</p>
                 <div className='text-bar'>
                     <input
                         type='text'
-                        value={text}
-                        onChange={(e) => setText(e.target.value)}
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
                     />
                 </div>
                 {showFormatWarning()}
-                <p>Enter a title (optional):</p>
+                <p>Enter a subject (optional):</p>
+                <div className='text-bar'>
+                    <input
+                        type='text'
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                    />
+                </div>
+                <p>Enter a title for your QR code (optional):</p>
                 <div className='text-bar'>
                     <input
                         type='text'

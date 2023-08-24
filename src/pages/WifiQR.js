@@ -31,11 +31,11 @@ export default function WifiQR() {
                     className={enc === 'WPA' ? 'selected' : null}
                 >WPA
                 </button>
-                <button
-                    onClick={() => setEnc('WPA2-EAP')}
-                    className={enc === 'WPA2-EAP' ? 'selected' : null}
-                >WPA2-EAP
-                </button>
+                {/*<button*/}
+                {/*    onClick={() => setEnc('WPA2-EAP')}*/}
+                {/*    className={enc === 'WPA2-EAP' ? 'selected' : null}*/}
+                {/*>WPA2-EAP*/}
+                {/*</button>*/}
                 <button
                     onClick={() => setEnc('WEP')}
                     className={enc === 'WEP' ? 'selected' : null}
