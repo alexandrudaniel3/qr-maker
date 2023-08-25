@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/qr-maker/static/css/main.2eb77dff.css",
+    "main.css": "/qr-maker/static/css/main.4648e620.css",
     "main.js": "/qr-maker/static/js/main.39f127df.js",
     "static/js/787.8aad5bb8.chunk.js": "/qr-maker/static/js/787.8aad5bb8.chunk.js",
     "index.html": "/qr-maker/index.html",
-    "main.2eb77dff.css.map": "/qr-maker/static/css/main.2eb77dff.css.map",
+    "main.4648e620.css.map": "/qr-maker/static/css/main.4648e620.css.map",
     "main.39f127df.js.map": "/qr-maker/static/js/main.39f127df.js.map",
     "787.8aad5bb8.chunk.js.map": "/qr-maker/static/js/787.8aad5bb8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2eb77dff.css",
+    "static/css/main.4648e620.css",
     "static/js/main.39f127df.js"
   ]
 }
