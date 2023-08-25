@@ -16,7 +16,7 @@ h1, p {
     border-radius: 15px;
     display: flex;
     flex-direction: row;
-    margin: 5% auto auto;
+    margin: 2% auto;
     width: 610px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -179,4 +179,10 @@ button:hover {
         margin-right: 2%;
     }
 
+}
+
+@media only screen and (max-height: 710px) {
+    .app {
+        height: auto;
+    }
 }
